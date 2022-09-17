@@ -7,53 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%- title %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/37e1ba43c0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/style/all.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top mt-md-10 mt-4 pt-0">
+    <div class="container">
+      <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-expanded="false">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+            <ul class="navbar-nav ms-auto bg-secondary bg-lg-transparent">
+                <li class="nav-item py-1 mx-4">
+                  <a href="index.html" class="nav-link fw-bold fs-5 text-white text-lg-gray1">首頁</a>
+                </li>
+                <li class="nav-item py-1 mx-4">
+                    <a href="alarm.html" class="nav-link fw-bold fs-5 text-white text-lg-gray1">認識住警器</a>
+                </li>
+                <!-- <li class="nav-item py-1 mx-4">
+                    <a href="#" class="nav-link fw-bold fs-5">認識火災</a>
+                </li>
+                <li class="nav-item py-1 mx-4">
+                    <a href="#" class="nav-link fw-bold fs-5">防災隨堂考</a>
+                </li> -->
+                <li class="nav-item bg-secondary rounded-pill py-1 px-8 mx-4 border border-secondary border-1 hover-secondary">
+                  <a href="qa.html" class="nav-link text-white fw-bolder fs-5">常見問題</a>
+              </li>
+            </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <%- contents %>
+   <%- contents %>
 
-    <footer class="footer">
-      footer
+    <footer class="footer  bg-light py-7 text-center text-secondary fw-bold">
+      <p class="mb-0">新莊射水公司</p>
+      <p class="mb-0">copyright©2022 Xin Zhuang Water Jet Co.</p>
     </footer>
-
     <script src="./assets/js/vendors.js"></script>
     <script src="./assets/js/all.js"></script>
   </body>

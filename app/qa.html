@@ -1,0 +1,54 @@
+---
+title: 常見問題｜一個住警器 守護一個家
+layout: ./app/layout.ejs
+engine: ejs
+current: QA
+---
+<div class="border-bottom border-2 border-primary mb-10"></div>
+<div class="container">
+  <h2 class="fw-bold border-start border-4 ps-3 mb-6 border-primary">常見問題</h2>
+  <ul class="list-unstyled ms-3 qalist">
+    <!-- <li class="mb-6">
+      <h4 class="Question mb-2"><i class="fa-sharp fa-solid fa-fire me-2"></i></i>住警器一直亂叫，可以把它拆掉嗎？</h4>
+      <div class="d-flex"><i class="fa-solid fa-fire-extinguisher me-2"></i><p class="Answer mb-0">為了您住家的安全，建議先將電池拆掉重新裝設，讓住警器重新開機。如果還會一直叫，再送廠商檢測是否故障。</p></div>
+    </li> -->
+  </ul>
+</div>
+
+<script>
+  // add Get LinkData for QA 
+  // 不要問我為什麼要寫在這裡，我也很無奈
+
+  var AreaSheetID = "1mdwOcufbWjOpJEv6-DbL7R58rtHbF_yENuQLQpMyHa0", // google 試算表 ID
+      TableID = "1623701739", // 工作表代號 ?gid=
+      Sql = "select A, B, C where C IS NOT NULL order by A", // SQL 語法
+      SqlString = encodeURIComponent(Sql),
+      AreaCallback = "callback2"; // 回呼函數名稱
+
+  $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + AreaCallback + "&tq=" + SqlString + "&key=" + AreaSheetID + "&gid=" + TableID);
+
+
+  window[AreaCallback] = function (json) {
+    
+  var rowArray = json.table.rows,
+      rowLength = rowArray.length,
+      dataGroup;
+      console.log(rowArray);
+
+  for (var i = 0; i < rowLength; i++) {
+      dataGroup = rowArray[i].c;
+
+      var question = dataGroup[1].v;
+      var answer = dataGroup[2].v;
+      console.log(question);
+      console.log(answer);
+      var html = `<li class="mb-6">
+      <h4 class="Question mb-2"><i class="fa-sharp fa-solid fa-fire me-2"></i></i>${question}</h4>
+      <div class="d-flex"><i class="fa-solid fa-fire-extinguisher me-2"></i><p class="Answer mb-0">${answer}</p></div>
+    </li>`;
+
+    $('.qalist').append(html);
+
+    }
+  };
+</script>
