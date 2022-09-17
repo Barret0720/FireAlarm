@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常見問題｜一個住警器 守護一個家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/37e1ba43c0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/style/all.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top mt-md-10 mt-4 pt-0">
+    <div class="container">
+      <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 collapsed border-0" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-expanded="false">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+            <ul class="navbar-nav ms-auto bg-secondary bg-lg-transparent">
+                <li class="nav-item py-1 mx-4">
+                    <a href="alarm.html" class="nav-link fw-bold fs-5 text-white text-lg-gray1">認識住警器</a>
+                </li>
+                <!-- <li class="nav-item py-1 mx-4">
+                    <a href="#" class="nav-link fw-bold fs-5">認識火災</a>
+                </li>
+                <li class="nav-item py-1 mx-4">
+                    <a href="#" class="nav-link fw-bold fs-5">防災隨堂考</a>
+                </li> -->
+                <li class="nav-item bg-secondary rounded-pill py-1 px-8 mx-4 border border-secondary border-1 hover-secondary">
+                  <a href="qa.html" class="nav-link text-white fw-bolder fs-5">常見問題</a>
+              </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+
+   <div class="border-bottom border-2 border-secondary pt-12 mb-10"></div>
+<div class="container">
+  <h2 class="fw-bold border-start border-4 ps-3 mb-6 border-secondary">常見問題</h2>
+  <ul class="list-unstyled ms-3 qalist">
+    <!-- <li class="mb-6">
+      <h4 class="Question mb-2"><i class="fa-sharp fa-solid fa-fire me-2"></i></i>住警器一直亂叫，可以把它拆掉嗎？</h4>
+      <div class="d-flex"><i class="fa-solid fa-fire-extinguisher me-2"></i><p class="Answer mb-0">為了您住家的安全，建議先將電池拆掉重新裝設，讓住警器重新開機。如果還會一直叫，再送廠商檢測是否故障。</p></div>
+    </li> -->
+  </ul>
+</div>
+
+<script>
+  // add Get LinkData for QA 
+  // 不要問我為什麼要寫在這裡，我也很無奈
+
+  var AreaSheetID = "1mdwOcufbWjOpJEv6-DbL7R58rtHbF_yENuQLQpMyHa0", // google 試算表 ID
+      TableID = "1623701739", // 工作表代號 ?gid=
+      Sql = "select A, B, C where C IS NOT NULL order by A", // SQL 語法
+      SqlString = encodeURIComponent(Sql),
+      AreaCallback = "callback2"; // 回呼函數名稱
+
+  $.getScript("https://spreadsheets.google.com/tq?tqx=responseHandler:" + AreaCallback + "&tq=" + SqlString + "&key=" + AreaSheetID + "&gid=" + TableID);
+
+
+  window[AreaCallback] = function (json) {
+    
+  var rowArray = json.table.rows,
+      rowLength = rowArray.length,
+      dataGroup;
+      console.log(rowArray);
+
+  for (var i = 0; i < rowLength; i++) {
+      dataGroup = rowArray[i].c;
+
+      var question = dataGroup[1].v;
+      var answer = dataGroup[2].v;
+      console.log(question);
+      console.log(answer);
+      var html = `<li class="mb-6">
+      <h4 class="Question mb-2"><i class="fa-sharp fa-solid fa-fire me-2"></i></i>${question}</h4>
+      <div class="d-flex"><i class="fa-solid fa-fire-extinguisher me-2"></i><p class="Answer mb-0">${answer}</p></div>
+    </li>`;
+
+    $('.qalist').append(html);
+
+    }
+  };
+</script>
+
+
+    <footer class="footer  bg-light py-7 text-center text-secondary fw-bold">
+      <p class="mb-0">新莊射水公司</p>
+      <p class="mb-0">copyright©2022 Xin Zhuang Water Jet Co.</p>
+    </footer>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+
+</html>
