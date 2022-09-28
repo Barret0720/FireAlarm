@@ -12,7 +12,7 @@ var page = location.pathname,
     host = location.host;
 
 if (host == GitHub) {
-  if (page == '/' + FireAlarm + '/qa.html' || page == '/' + FireAlarm + '/alarm.html') {
+  if (page == '/' + repo + '/qa.html' || page == '/' + repo + '/alarm.html') {
     header.classList.remove("fixed-top", "mt-4", "mt-md-10");
     header.classList.add("bg-secondary");
     link.classList.add("text-primary");
