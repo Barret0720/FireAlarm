@@ -58,7 +58,7 @@
 
   var AreaSheetID = "1mdwOcufbWjOpJEv6-DbL7R58rtHbF_yENuQLQpMyHa0", // google 試算表 ID
       TableID = "1623701739", // 工作表代號 ?gid=
-      Sql = "select A, B, C where C IS NOT NULL order by A", // SQL 語法
+      Sql = "select A, B, C, D where D IS NOT NULL order by C, A", // SQL 語法
       SqlString = encodeURIComponent(Sql),
       AreaCallback = "callback2"; // 回呼函數名稱
 
@@ -75,8 +75,8 @@
   for (var i = 0; i < rowLength; i++) {
       dataGroup = rowArray[i].c;
 
-      var question = dataGroup[1].v;
-      var answer = dataGroup[2].v;
+      var question = dataGroup[2].v;
+      var answer = dataGroup[3].v;
       console.log(question);
       console.log(answer);
       var html = `<li class="mb-6">
