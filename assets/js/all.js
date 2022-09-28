@@ -12,12 +12,15 @@ var page = location.pathname,
     host = location.host;
 
 if (host == GitHub) {
+  console.log(page);
+
   if (page == '/' + repo + '/qa.html' || page == '/' + repo + '/alarm.html') {
     header.classList.remove("fixed-top", "mt-4", "mt-md-10");
+    header.classList.remove("fixed-top");
     header.classList.add("bg-secondary");
     link.classList.add("text-primary");
     link.classList.remove("text-lg-gray1", "text-white");
-    console.log("YES");
+    console.log(page);
   } else {
     window.onscroll = function () {
       var top = window.scrollY;
